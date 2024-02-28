@@ -36,3 +36,45 @@ h4,
 .body3-fonts {
     line-height: var(--common-line-height);
 }
+
+h1 {
+    font-size: var(--headline-font-size);
+    line-height: var(--headline-line-height);
+}
+
+h2 {
+    font-size: var(--subtitle1-font-size);
+}
+
+h3 {
+    font-size: var(--subtitle2-font-size);
+}
+
+h4 {
+    font-size: var(--subtitle3-font-size);
+}
+
+.body1-fonts {
+    font-size: var(--body1-font-size);
+}
+
+.body2-fonts {
+    font-size: var(--body2-font-size);
+}
+
+.body3-fonts {
+    font-size: var(--body3-font-size)
+}
+
+.caption-fonts {
+    font-size: var(--caption-font-size);
+    line-height: var(--caption-line-height);
+}
+
+input:focus-visible {
+    outline: 0;
+}
+
+.featured-img a.arrow.hidden {
+    display: none;
+}
