@@ -301,3 +301,37 @@ body {
     position: relative;
     z-index: 2;
 }
+
+.detail-main .header {
+    padding: 20px 20px 24px 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.detail-main .header-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 15px;
+}
+
+.detail-main .header-wrap {
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+}
+
+.detail-main .back-btn-wrap {
+    max-height: 32px;
+}
+
+.detail-main .back-btn-wrap path,
+.detail-main .header-wrapper p,
+.detail-main .header-wrapper h1 {
+    fill: var(--grayscale-white);
+    color: var(--grayscale-white);
+}
+
+.detail-main .pokemon-id-wrap p {
+    font-weight: var(--font-weight-bold);
+}
