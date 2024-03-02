@@ -301,3 +301,125 @@ body {
     position: relative;
     z-index: 2;
 }
+
+
+.detail-main .header-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 15px;
+}
+
+.detail-main .header-wrap {
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+}
+
+.detail-main .back-btn-wrap {
+    max-height: 32px;
+}
+
+.detail-main .back-btn-wrap path,
+.detail-main .header-wrapper p,
+.detail-main .header-wrapper h1 {
+    fill: var(--grayscale-white);
+    color: var(--grayscale-white)
+}
+
+.detail-main .pokemon-id-wrap p {
+    font-weight: var(--font-weight-bold);
+}
+
+.detail-img-wrapper {
+    width: 200px;
+    heigth: 200px;
+    margin: auto;
+    position: relative;
+    z-index: 3;
+}
+
+.detail-img-wrapper img {
+    width: 100%;
+    height: 100%;
+}
+
+.detail-card-detail-wrapper {
+    border-radius: 8px;
+    background-color: var(--grayscale-white);
+    box-shadow: var(--drop-shadow-inner);
+    padding: 56px 20px 20px 20px;
+    margin-top: -50px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+}
+
+.power-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.power-wrapper > p {
+    border-radius: 10px;
+    padding: 2px 8px;
+    font-weight: var(--font-weight-bold);
+    color: var(--grayscale-white);
+    text-transform: capitalize;
+    background-color: #74cb48;
+}
+
+.pokemon-detail.move p {
+    text-transform: capitalize;
+    word-break: break-all;
+}
+
+.list-item .name-wrap p {
+    text-transform: capitalize;
+}
+
+.detail-card-detail-wrapper .about-text {
+    font-weight: var(--font-weight-bold);
+    text-align: center;
+}
+
+.pokemon-detail-wrapper {
+    display: flex;
+    align-items: flex-end;
+}
+
+.pokemon-detail-wrapper .pokemon-detail-wrap {
+    flex: 1;
+    text-align: center;
+    position: relative;
+}
+
+.pokemon-detail-wrap:before {
+    content: "";
+    background-color: var(--grayscale-light);
+    width: 1px;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.pokemon-detail-wrap:last-child::before {
+    display: none;
+}
+
+.pokemon-detail {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 20px;
+    gap: 8px;
+}
+
+
