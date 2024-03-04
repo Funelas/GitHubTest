@@ -441,4 +441,32 @@ body {
     transform: rotate(90deg);
 }
 
-asd
+.detail-card-detail-wrapper .pokemon-description {
+    color: var(--grayscale-dark);
+    text-align: center;
+}
+
+.stats-wrap {
+    display: flex;
+    align-items: center;
+}
+
+.stats-wrap p {
+    color: var(--grayscale-dark);
+    margin-right: 8px;
+    min-width: 19px;
+}
+
+.stats-wrap p.stats {
+    text-align: right;
+    padding-right: 8px;
+    min-width: 35px;
+    border-right: 1px solid var(--grayscale-light);
+    font-weight: var(--font-weight-bold);
+}
+
+.stats-wrap .progress-bar {
+    flex: 1;
+    border-radius: 4px;
+    height: 4px;
+}
