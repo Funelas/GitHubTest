@@ -4,7 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const MAX_POKEMONS = 151;
     const pokemonID = new URLSearchParams(window.location.search).get("id");
     const id = parseInt(pokemonID, 10);
-    if (id < 1 || id > MAX_POKEMONS) {
+    console.log(pokemonID);
+    if (id<1 || id > MAX_POKEMONS) {
         return (window.location.href = "./detailpage.html");
 
     }
@@ -25,8 +26,8 @@ async function loadPokemon(id){
         if (currentPokemonId === id) {
             displayPokemonDetails(pokemon);
             const flavorText = getEnglishFlavorText(pokemonSpecies);
-            document.querySelector(".body3-fonts.pokemon-description").textContent = flavorText;
-            
+            document.querySelector(".body3-fonts .pokemon-description").textContent = flavorText;
+            };
         const [leftArrow, rightArrow] = ["#leftArrow","#rightArrow"].map((sel) =>
             document.querySelector(sel)
         );
@@ -49,9 +50,10 @@ async function loadPokemon(id){
         };
 
         window.history.pushState({},"", `./try.html?id=${id}`);
+        return true;
     }
-    return true;
-    }catch(error){
+    
+    catch(error){
         console.error("An error occured while fetching Pokemon data:", error);
         return false;
     }
@@ -102,19 +104,19 @@ function setTypeBackgroundColor(pokemon){
         console.warn(`Color not defined for type: ${maintype}`);
         return ;
     }
-    const detailMainElement = document.querySelector(".detail-main");
-    setElementStyles([detailMainElement],"backgroundColor",color);
-    setElementStyles([detailMainElement],"borderColor",color);
-    setElementStyles(document.querySelectorAll(".power-wrapper > p"),"backgroundColor",color);
-    setElementStyles(document.querySelectorAll(".stats-wrap p.stats"),"color",color);
-    setElementStyles(document.querySelectorAll(".stats-wrap .progress-bar"),"color",color);
+    const detailMainElement = document.querySelector("-detail-main");
+    setElementStyles((detailMainElement),"backgroundColor",color);
+    setElementStyles((detailMainElement),"borderColor",color);
+    setElementStyles((document.querySelectorAll(".power-wrapper >p"),"backgroundColor",color));
+    setElementStyles((document.querySelectorAll(".stats-wrap p.stats"),"color",color));
+    setElementStyles((document.querySelectorAll(".stats-wrap .progress-bar"),"color",color));
     const rgbaColor = rgbaFromHex(color);
     const styleTag = document.createElement("style");
     styleTag.innerHTML = `
     .stats-wrap .progress-bar::-webkit-progress-bar {
         background-color: rgba(${rgbaColor},0.5);
     }
-    .stats-wrap .progress-bar::-webkit-progress-value {
+    .stats-wrap .progress-bar::-webkit-progress-bar {
         background-color: ${color};
     }`;
     document.head.appendChild(styleTag);
@@ -130,10 +132,10 @@ function createAndAppendElement(parent,tag,options = {}){
         element[key] = options[key];
     });
     parent.appendChild(element);
-    return element;
+    return element
 }
 function displayPokemonDetails(pokemon){
-    const { name, id, types, weight, height, abilities, stats} = pokemon;
+    const {name,id,types,weight,height,abilities,stats} = pokemon;
     const capitalizePokemonLetter = capitalizeFirstLettter(name);
     document.querySelector("title").textContent = capitalizePokemonLetter;
     const detailMainElement = document.querySelector(".detail-main");
@@ -145,7 +147,7 @@ function displayPokemonDetails(pokemon){
     imageElement.alt = name;
     const typeWrapper = document.querySelector(".power-wrapper");
     typeWrapper.innerHTML = "";
-        types.forEach(({ type }) => {createAndAppendElement(typeWrapper, "p", {className: `body3-fonts type ${type.name}`, textContent: type.name,});
+        type.forEach(({ type }) => {createAndAppendElement(typeWrapper, "p", {className: `body3-fonts type ${type.name}`, textContent: type.name,});
 });
 
 document.querySelector(".pokemon-detail-wrap .pokemon-detail p.body3-fonts.weight").textContent = `${weight / 10} kg`;
