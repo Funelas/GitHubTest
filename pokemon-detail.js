@@ -1,7 +1,7 @@
 let currentPokemonId = null;
 
 document.addEventListener("DOMContentLoaded", () => {
-    const MAX_POKEMONS = 151;
+    const MAX_POKEMONS = 649;
     const pokemonID = new URLSearchParams(window.location.search).get("id");
     const id = parseInt(pokemonID, 10);
     if (id < 1 || id > MAX_POKEMONS) {
@@ -34,21 +34,26 @@ async function loadPokemon(id){
         rightArrow.removeEventListener("click",navigatePokemon);
         
         if (id !== 1) {
+            leftArrow.style.display = "";
             leftArrow.addEventListener("click",() => {
-                navigatePokemon(id-1);
+                navigatePokemon(id - 1);
+                
             });
-        } else{
-            leftArrow.style.display = "none";
-        };
-        if (id !== 151) {
+        }else{
+            leftArrow.style.display = "none"
+        }
+        if (id !== 649) {
+            rightArrow.style.display = "";
             rightArrow.addEventListener("click",() => {
-                navigatePokemon(id+1);
+                navigatePokemon(id + 1);
+            
             });
-        } else{
-            rightArrow.style.display = "none";
-        };
+        }
+        else{
+            rightArrow.style.display = "none"
+        }
 
-        window.history.pushState({},"", `./try.html?id=${id}`);
+        window.history.pushState({},"", `./detailpage.html?id=${id}`);
     }
     return true;
     }catch(error){
@@ -57,7 +62,7 @@ async function loadPokemon(id){
     }
 }
 
-async function navigatePokemon() {
+async function navigatePokemon(id) {
     currentPokemonId = id;
     await loadPokemon(id);
 }
@@ -149,7 +154,7 @@ function displayPokemonDetails(pokemon){
 });
 
 document.querySelector(".pokemon-detail-wrap .pokemon-detail p.body3-fonts.weight").textContent = `${weight / 10} kg`;
-document.querySelector(".pokemon-detail-wrap .pokemon-detail p.body3-fonts.height").textContent = `${height / 10} cm`;
+document.querySelector(".pokemon-detail-wrap .pokemon-detail p.body3-fonts.height").textContent = `${height / 10} m`;
 const abilitiesWrapper = document.querySelector(".pokemon-detail-wrap .pokemon-detail.move");
 abilities.forEach(({ability}) => {
     createAndAppendElement(abilitiesWrapper, "p",{className: "body3-fonts", textContent: ability.name,});
